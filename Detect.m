@@ -165,8 +165,6 @@ data = Train_Feat;
 groups = ismember(Train_Label,0);
 [train,test] = crossvalind('HoldOut',groups);
 cp = classperf(groups);
-
-
 svmStruct = svmtrain(data(train,:),groups(train),'showplot',false,'kernel_function','linear');
 classes = svmclassify(svmStruct,data(test,:),'showplot',false);
 classperf(cp,classes,test);
